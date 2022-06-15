@@ -5,6 +5,7 @@ from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework import status
+from rest_framework.generics import ListCreateAPIView
 from rest_framework.views import APIView
 from rest_framework.serializers import ModelSerializer
 from rest_framework.response import Response
@@ -84,3 +85,8 @@ class CategoriaDetail(APIView):
         categoria = get_object_or_404(Categoria.objects.all(), id=id)
         categoria.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class CategoriasListGeneric(ListCreateAPIView):
+    queryset = Categoria.objects.all()
+    serializer_class = CategoriaSerializer

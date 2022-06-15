@@ -19,11 +19,12 @@ from django.urls import path
 from core import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('teste/', views.teste),
-    path('pag2/', views.teste2),
-    path('categorias/', views.CategoryView.as_view()),
-    path('categorias/<int:id>/', views.CategoryView.as_view()),
-    path('categorias-apiview/', views.CategoriasList.as_view()),
-    path('categorias-apiview/<int:id>/', views.CategoriaDetail.as_view()),
+    path("admin/", admin.site.urls),
+    path("teste/", views.teste),
+    path("pag2/", views.teste2),
+    path("categorias/", views.CategoryView.as_view()),
+    path("categorias/<int:id>/", views.CategoryView.as_view()),
+    path("categorias-apiview/", views.CategoriasList.as_view()),
+    path("categorias-apiview/<int:id>/", views.CategoriaDetail.as_view()),
+    path("categorias-generic/", views.CategoriasListGeneric.as_view()),
 ]
