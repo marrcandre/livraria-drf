@@ -3,4 +3,4 @@ from .categoriaClass import CategoryView
 from .categoriaGeneric import CategoriaDetailGeneric, CategoriasListGeneric
 from .categoriaAPIView import CategoriaDetail, CategoriasList
 from .categoria import CategoriaViewSet
-
+from .editora import EditoraViewSet
