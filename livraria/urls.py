@@ -8,6 +8,7 @@ from core import views
 router = DefaultRouter()
 router.register(r'autores',  views.AutorViewSet)
 router.register(r'categorias', views.CategoriaViewSet)
+router.register(r'compras', views.CompraViewSet)
 router.register(r'editoras', views.EditoraViewSet)
 router.register(r'livros', views.LivroViewSet)
 
