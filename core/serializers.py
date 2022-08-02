@@ -15,6 +15,7 @@ class EditoraSerializer(ModelSerializer):
         fields = "__all__"
 
 
+
 class EditoraNestedSerializer(ModelSerializer):
     class Meta:
         model = Editora

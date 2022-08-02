@@ -9,14 +9,14 @@ class Categoria(models.Model):
     def __str__(self):
         return self.descricao
 
-        class Meta:
-            verbose_name = "Categoria"
-            verbose_name_plural = "Categorias"
+    class Meta:
+        verbose_name = "Categoria"
+        verbose_name_plural = "Categorias"
 
 
 class Editora(models.Model):
     nome = models.CharField(max_length=255)
-    site = models.URLField()
+    site = models.URLField(null=True, blank=True)
 
     def __str__(self):
         return self.nome
@@ -63,7 +63,9 @@ class Compra(models.Model):
         PAGO = 3, "Pago"
         ENTREGUE = 4, "Entregue"
 
-    usuario = models.ForeignKey(User, on_delete=models.PROTECT, related_name="compras")
+    usuario = models.ForeignKey(
+        User, on_delete=models.PROTECT, related_name="compras"
+    )
     status = models.IntegerField(
         choices=StatusCompra.choices, default=StatusCompra.CARRINHO
     )
