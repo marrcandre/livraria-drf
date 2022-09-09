@@ -6,11 +6,13 @@ authors = ["Marco André Mendes <marcoandre@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-Django = "^4.0.5"
 gunicorn = "^20.1.0"
+Django = "^4.0.5"
 whitenoise = "^6.2.0"
 djangorestframework = "^3.13.1"
 django-cors-headers = "^3.13.0"
+python-magic = "^0.4.27"
+Pillow = "^9.2.0"
 
 [tool.poetry.dev-dependencies]
 pylint = "^2.14.1"

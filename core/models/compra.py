@@ -4,6 +4,7 @@ from django.db import models
 
 from .livro import Livro
 
+
 class Compra(models.Model):
     class StatusCompra(models.IntegerChoices):
         CARRINHO = 1, "Carrinho"
