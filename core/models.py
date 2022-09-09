@@ -1,6 +1,15 @@
 from django.db import models
 from django.db.models import F
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+from django.contrib.auth.models import AbstractUser
+
+
+class Usuario(AbstractUser):
+    cpf = models.CharField(max_length=11, blank=True, null=True, unique=True)
+    rg = models.CharField(max_length=7, blank=True, null=True, unique=True)
+
+    def __str__(self):
+        return f"{self.username}"
 
 
 class Categoria(models.Model):
@@ -64,7 +73,7 @@ class Compra(models.Model):
         ENTREGUE = 4, "Entregue"
 
     usuario = models.ForeignKey(
-        User, on_delete=models.PROTECT, related_name="compras"
+        get_user_model(), on_delete=models.PROTECT, related_name="compras"
     )
     status = models.IntegerField(
         choices=StatusCompra.choices, default=StatusCompra.CARRINHO
