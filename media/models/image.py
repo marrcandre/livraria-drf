@@ -1,4 +1,5 @@
-import mimetypes, uuid
+import mimetypes
+import uuid
 
 from django.db import models
 

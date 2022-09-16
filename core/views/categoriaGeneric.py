@@ -1,7 +1,9 @@
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.generics import (ListCreateAPIView,
+                                     RetrieveUpdateDestroyAPIView)
 
 from core.models import Categoria
 from core.serializers import CategoriaSerializer
+
 
 class CategoriasListGeneric(ListCreateAPIView):
     queryset = Categoria.objects.all()

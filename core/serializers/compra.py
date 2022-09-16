@@ -1,5 +1,5 @@
-from rest_framework.serializers import CharField, SerializerMethodField
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import (CharField, ModelSerializer,
+                                        SerializerMethodField)
 
 from core.models import Compra, ItensCompra
 

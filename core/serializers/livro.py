@@ -1,13 +1,11 @@
-from rest_framework.serializers import ModelSerializer
-from rest_framework.serializers import (
-    CharField,
-    SerializerMethodField,
-    SlugRelatedField,
-)
+from rest_framework.serializers import (CharField, ModelSerializer,
+                                        SerializerMethodField,
+                                        SlugRelatedField)
 
+from core.models import Livro
 from media.models import Image
 from media.serializers import ImageSerializer
-from core.models import Livro
+
 from .editora import EditoraNestedSerializer
 
 
@@ -31,13 +29,6 @@ class LivroDetailSerializer(ModelSerializer):
     editora = EditoraNestedSerializer()
     autores = SerializerMethodField()
 
-    # capa_attachment_key = SlugRelatedField(
-    #     source="capa",
-    #     queryset=Image.objects.all(),
-    #     slug_field="attachment_key",
-    #     required=False,
-    #     write_only=True,
-    # )
     capa = ImageSerializer(required=False)
 
     def get_autores(self, instance):
