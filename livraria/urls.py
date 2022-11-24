@@ -12,6 +12,8 @@ from core.views import (
     EditoraViewSet,
     LivroViewSet,
 )
+
+from core.views import teste, teste2, CategoryView, CategoriasList, CategoriaDetail, CategoriasListGeneric, CategoriaDetailGeneric
 from media.router import router as media_router
 
 router = DefaultRouter()
@@ -23,14 +25,14 @@ router.register(r"livros", LivroViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("teste/", views.teste),
-    path("pag2/", views.teste2),
-    path("categorias-class/", views.CategoryView.as_view()),
-    path("categorias-class/<int:id>/", views.CategoryView.as_view()),
-    path("categorias-apiview/", views.CategoriasList.as_view()),
-    path("categorias-apiview/<int:id>/", views.CategoriaDetail.as_view()),
-    path("categorias-generic/", views.CategoriasListGeneric.as_view()),
-    path("categorias-generic/<int:id>/", views.CategoriaDetailGeneric.as_view()),
+    path("teste/", teste),
+    path("pag2/", teste2),
+    path("categorias-class/", CategoryView.as_view()),
+    path("categorias-class/<int:id>/", CategoryView.as_view()),
+    path("categorias-apiview/", CategoriasList.as_view()),
+    path("categorias-apiview/<int:id>/", CategoriaDetail.as_view()),
+    path("categorias-generic/", CategoriasListGeneric.as_view()),
+    path("categorias-generic/<int:id>/", CategoriaDetailGeneric.as_view()),
     path("api/media/", include(media_router.urls)),
     path("", include(router.urls)),
 ]
